@@ -22,7 +22,7 @@ export default async function HomePage() {
           </p>
         </div>
       )}>
-        <PreviewBlogList />
+        <PreviewBlogList query={query} />
       </PreviewSuspense>
     );
   }
