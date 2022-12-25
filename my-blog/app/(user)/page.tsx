@@ -3,11 +3,12 @@ import { groq } from "next-sanity";
 import { client } from "../../lib/sanity.client";
 import PreviewSuspense from "../../components/PreviewSuspense";
 import PreviewBlogList from "../../components/PreviewBlogList";
+import BlogList from "../../components/BlogList";
 
 const query = groq`
-*[_type='post']{
+*[_type=='post'] {
   ...,
-  author->
+  author->,
   categories[]->
 } | order(_createdAt desc)
 `;
@@ -15,13 +16,13 @@ const query = groq`
 export default async function HomePage() {
   if (previewData()) {
     return (
-      <PreviewSuspense fallback={(
-        <div role="status">
-          <p className="text-center text-[#f7ab0a] animate-pulse">
-            Loading Preview Data...
-          </p>
-        </div>
-      )}>
+      <PreviewSuspense
+        fallback={
+          <div role="status">
+            <p className="text-center text-[#f7ab0a] animate-pulse">Loading Preview Data...</p>
+          </div>
+        }
+      >
         <PreviewBlogList query={query} />
       </PreviewSuspense>
     );
@@ -29,9 +30,5 @@ export default async function HomePage() {
 
   const posts = await client.fetch(query);
 
-  return (
-    <div>
-      <h1>Not in Preview Mode</h1>
-    </div>
-  );
+  return <BlogList posts={posts} />;
 }
