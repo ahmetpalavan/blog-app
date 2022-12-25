@@ -4,7 +4,7 @@ type Props = {
 
 function BlogList({posts}: Props) {
   return (
-    <div>BlogList</div>
+    <div>BlogListt</div>
   )
 }
 
