@@ -1,6 +1,4 @@
-/** @format */
-
-import { ArrowDownIcon, ArrowUpRightIcon } from "@heroicons/react/24/solid";
+import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "../lib/urlfor";
