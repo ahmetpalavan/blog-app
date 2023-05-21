@@ -1,4 +1,3 @@
-Elbette, aşağıda README açıklamasını kullanarak https://github.com/ahmetpalavan/blog-app deposuna da ekleyebilirsiniz:
 
 ## Blog Uygulaması
 
